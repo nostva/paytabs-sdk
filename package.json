@@ -1,0 +1,32 @@
+{
+  "name": "paytabs-sdk",
+  "version": "1.0.0",
+  "description": "A node package for Paytabs integration",
+  "keywords": [
+    "paytabs",
+    "api",
+    "payment processing",
+    "typescript"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "main": "index.js",
+  "author": "Mohamed Saeed <mohamed.saeed.bakit@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
