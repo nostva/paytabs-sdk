@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.0
+
+### Minor Changes
+
+- cdb2014: new release
+
 ## 1.0.1
 
 ### Patch Changes
