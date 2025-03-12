@@ -1,0 +1,1 @@
+export { PayTabs } from './paytabs';
