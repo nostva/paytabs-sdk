@@ -1,1 +1,1 @@
-export { PayTabs } from './lib/paytabs';
+export { PayTabs } from './paytabs.core';

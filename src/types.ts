@@ -29,13 +29,7 @@ export type TransactionStatus = 'A' | 'H' | 'P' | 'V' | 'E' | 'D' | 'X';
  * - `"register"` - Verify card without charging.
  * - `"refund"` - Return money to the customer.
  */
-export type TransactionType =
-  | 'sale'
-  | 'auth'
-  | 'capture'
-  | 'void'
-  | 'register'
-  | 'refund';
+export type TransactionType = 'sale' | 'auth' | 'capture' | 'void' | 'register' | 'refund';
 
 /**
  * Supported currency codes.
@@ -135,7 +129,7 @@ export interface PaymentRequest {
   /**
    * `cart_description` allows merchants to provide a detailed description of the items or services in the shopping cart.
    */
-  cart_description?: string;
+  cart_description: string;
   /**
    * `cart_currency` parameter enables merchants to define the exact currency for each transaction.
    */
