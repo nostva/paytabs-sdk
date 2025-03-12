@@ -13,12 +13,20 @@ npm install paytabs-sdk
 Initialize the SDK with your PayTabs credentials:
 
 ```javascript
-import { PayTabs } from 'paytabs-sdk';
+import PayTabs from 'paytabs-sdk';
 
-const paytabs = new PayTabs({
+const paytabs = PayTabs({
   profileId: 'YOUR_PROFILE_ID',
   serverKey: 'YOUR_SERVER_KEY',
-  region: 'EGY', // Available regions: ARE, EGY, SAU, OMN, JOR
+  region: 'EGY',
+});
+```
+
+```javascript
+const paytabs = require('paytabs-sdk')({
+  profileId: 'YOUR_PROFILE_ID',
+  serverKey: 'YOUR_SERVER_KEY',
+  region: 'EGY',
 });
 ```
 
