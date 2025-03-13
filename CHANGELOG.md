@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.3
+
+### Patch Changes
+
+- 3231e52: hotfix: update payment request and response types to PayTabs specific interfaces
+
 ## 1.1.2
 
 ### Patch Changes
