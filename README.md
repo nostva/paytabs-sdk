@@ -108,7 +108,7 @@ const response = await paytabs.payments.retrieve('TST*************');
 
 ## Verify Redirect Response
 
-the following method verifies the HMAC signature for the redirect request body. It computes the SHA-256 hash of the payload using your configured server-key and compares it with the provided signature to ensure the integrity of the data.
+The following method verifies the HMAC signature for the redirect request body. It computes the SHA-256 hash of the payload using your configured server-key and compares it with the provided signature to ensure the integrity of the data.
 
 ```javascript
 const isValid = paytabs.verifyRedirectResponse(payload, signature);
