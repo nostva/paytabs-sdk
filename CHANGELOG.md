@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.6
+
+### Patch Changes
+
+- f3a77b0: correct capitalization in HMAC signature verification description
+
 ## 1.1.5
 
 ### Patch Changes
