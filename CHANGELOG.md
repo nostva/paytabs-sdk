@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.4
+
+### Patch Changes
+
+- a460a9c: update payment response and transaction types to align with PayTabs specifications
+
 ## 1.1.3
 
 ### Patch Changes
