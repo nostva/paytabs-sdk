@@ -3,7 +3,7 @@ import { Payments } from './resources/payments';
 import type { PayTabsConfig } from './types';
 import { computeHMACSignature } from './utils/compute-hmac-sig';
 
-export class PayTabs {
+class PayTabs {
   private client: PayTabsClient;
   private serverKey: string;
   public payments: Payments;
@@ -17,7 +17,6 @@ export class PayTabs {
   }
 
   public static createPayTabs(config: PayTabsConfig): PayTabs {
-    // If instance doesn't exist, create it
     if (!PayTabs.instance) {
       PayTabs.instance = new PayTabs(config);
     }

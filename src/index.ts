@@ -1,1 +1,2 @@
-export { PayTabs } from './paytabs.core';
+import PayTabs from './paytabs.core';
+export default PayTabs;
