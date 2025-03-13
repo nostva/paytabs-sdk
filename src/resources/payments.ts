@@ -1,12 +1,16 @@
 import type { PayTabsClient } from '../paytabs.client';
-import type { PaymentRequest, TransactionDetailsResponse } from '../types';
+import type {
+  PayTabsPaymentRequest,
+  PayTabsPaymentResponse,
+  TransactionDetailsResponse,
+} from '../types';
 
 export class Payments {
   constructor(private client: InstanceType<typeof PayTabsClient>) {}
 
   async create(
-    paymentData: Omit<PaymentRequest, 'tran_type' | 'profile_id'>,
-  ): Promise<PaymentResponse> {
+    paymentData: Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>,
+  ): Promise<PayTabsPaymentResponse> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'sale',
@@ -14,8 +18,8 @@ export class Payments {
   }
 
   async authorize(
-    paymentData: Omit<PaymentRequest, 'tran_type' | 'profile_id'>,
-  ): Promise<PaymentResponse> {
+    paymentData: Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>,
+  ): Promise<PayTabsPaymentResponse> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'auth',
@@ -23,10 +27,10 @@ export class Payments {
   }
 
   async capture(
-    paymentData: Partial<Omit<PaymentRequest, 'tran_type' | 'profile_id'>> & {
+    paymentData: Partial<Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>> & {
       tran_ref: string;
     },
-  ): Promise<PaymentResponse> {
+  ): Promise<PayTabsPaymentResponse> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'capture',
@@ -34,10 +38,10 @@ export class Payments {
   }
 
   async refund(
-    paymentData: Partial<Omit<PaymentRequest, 'tran_type' | 'profile_id'>> & {
+    paymentData: Partial<Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>> & {
       tran_ref: string;
     },
-  ): Promise<PaymentResponse> {
+  ): Promise<PayTabsPaymentResponse> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'refund',

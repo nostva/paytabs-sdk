@@ -109,7 +109,7 @@ export interface ShippingDetails {
 /**
  * Payment request payload for initiating a transaction.
  */
-export interface PaymentRequest {
+export interface PayTabsPaymentRequest {
   /**
    * `profile_id` is the merchant profile ID you can get from your PayTabs dashboard.
    */
@@ -177,7 +177,7 @@ export interface PaymentRequest {
 /**
  * Payment Response
  */
-export interface PaymentResponse {
+export interface PayTabsPaymentResponse {
   /**
    * `tran_ref` a unique transaction reference identifier. It serves as an important reference point for querying transaction details
    * and managing your transaction processes such as refunds, reversals and captures.
