@@ -18,7 +18,7 @@ export type Region = 'ARE' | 'EGY' | 'SAU' | 'OMN' | 'JOR' | 'GLOBAL';
  * - `"D"` - Declined
  * - `"X"` - Expired
  */
-export type TransactionStatus = 'A' | 'H' | 'P' | 'V' | 'E' | 'D' | 'X';
+export type PaymentStatus = 'A' | 'H' | 'P' | 'V' | 'E' | 'D' | 'X';
 
 /**
  * Transaction types:
@@ -90,6 +90,16 @@ export interface CustomerDetails {
   country?: string;
   zip?: string;
   ip?: string;
+}
+
+/**
+ * Payment result.
+ */
+export interface PaymentResult {
+  response_status?: PaymentStatus;
+  response_code?: string;
+  response_message?: string;
+  transaction_time?: string;
 }
 
 /**
@@ -178,31 +188,16 @@ export interface PayTabsPaymentRequest {
  * Payment Response
  */
 export interface PayTabsPaymentResponse {
-  /**
-   * `tran_ref` a unique transaction reference identifier. It serves as an important reference point for querying transaction details
-   * and managing your transaction processes such as refunds, reversals and captures.
-   */
   tran_ref?: string;
-  /**
-   * `tran_type` is the identification of the type of the transaction such as sale, refund, void, etc.
-   */
   tran_type?: TransactionType;
-  /**
-   * `cart_id` allows merchants to assign a unique identifier to each payment and connect it to his cart or order identification
-   */
   cart_id?: string;
   cart_description?: string;
   cart_currency?: CurrencyCode;
   cart_amount?: string;
   tran_total?: string;
-  /**
-   * `redirect_url` used to redirect customers through the payment process.
-   */
+  tran_currency: CurrencyCode;
   redirect_url?: string;
-  /**
-   * `trace` Trace information related to the batch or request.
-   */
-  customer_details: Partial<CustomerDetails>;
+  customer_details?: Partial<CustomerDetails>;
   callback?: string;
   return?: string;
   serviceId?: number;
@@ -215,29 +210,8 @@ export interface PayTabsPaymentResponse {
 /**
  * Transaction Details Response
  */
-export interface TransactionDetailsResponse {
-  tran_ref?: string;
-  transaction_status?: string;
-  cart_id?: string;
-  cart_description?: string;
-  cart_currency?: string;
-  cart_amount?: number;
-  customer_details?: CustomerDetails;
-  payment_result?: {
-    response_status?: TransactionStatus;
-    response_code?: string;
-    response_message?: string;
-    transaction_time?: string;
-  };
-  payment_info?: {
-    payment_method?: string;
-    card_type?: string;
-    card_scheme?: string;
-    payment_description?: string;
-  };
-  serviceId?: number;
-  paymentChannel?: string;
-  profileId?: number;
-  merchantId?: number;
-  trace?: string;
+export interface PayTabsPaymentTransaction extends PayTabsPaymentResponse {
+  previous_tran_ref?: string;
+  payment_result?: PaymentResult;
+  payment_info?: { [key: string]: any };
 }

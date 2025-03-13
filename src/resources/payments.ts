@@ -2,7 +2,7 @@ import type { PayTabsClient } from '../paytabs.client';
 import type {
   PayTabsPaymentRequest,
   PayTabsPaymentResponse,
-  TransactionDetailsResponse,
+  PayTabsPaymentTransaction,
 } from '../types';
 
 export class Payments {
@@ -30,7 +30,7 @@ export class Payments {
     paymentData: Partial<Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>> & {
       tran_ref: string;
     },
-  ): Promise<PayTabsPaymentResponse> {
+  ): Promise<PayTabsPaymentTransaction> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'capture',
@@ -41,14 +41,14 @@ export class Payments {
     paymentData: Partial<Omit<PayTabsPaymentRequest, 'tran_type' | 'profile_id'>> & {
       tran_ref: string;
     },
-  ): Promise<PayTabsPaymentResponse> {
+  ): Promise<PayTabsPaymentTransaction> {
     return this.client.request('/payment/request', {
       ...paymentData,
       tran_type: 'refund',
     });
   }
 
-  async retrieve(tran_ref: string): Promise<TransactionDetailsResponse> {
+  async retrieve(tran_ref: string): Promise<PayTabsPaymentTransaction> {
     return this.client.request('/payment/query', {
       tran_ref,
     });
