@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.5
+
+### Patch Changes
+
+- 190bfb1: update README to enhance SDK usage instructions and add payment methods
+
 ## 1.1.4
 
 ### Patch Changes
