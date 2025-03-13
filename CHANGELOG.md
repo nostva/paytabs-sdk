@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.2
+
+### Patch Changes
+
+- d9db54c: hotfix: change PayTabs export to default and clean up class definition
+
 ## 1.1.1
 
 ### Patch Changes
