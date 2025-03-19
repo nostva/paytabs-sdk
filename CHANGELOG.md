@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.8
+
+### Patch Changes
+
+- b78e0bc: update package git urls
+
 ## 1.1.7
 
 ### Patch Changes
