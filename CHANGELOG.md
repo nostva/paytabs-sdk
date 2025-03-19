@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.7
+
+### Patch Changes
+
+- 3af3279: change package git urls
+
 ## 1.1.6
 
 ### Patch Changes
