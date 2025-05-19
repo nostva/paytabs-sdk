@@ -1,8 +1,10 @@
 import assert from 'node:assert';
+
 import { PayTabsClient } from './paytabs.client';
 import { Payments } from './resources/payments';
 import type { PayTabsConfig } from './types';
-import { computeHMACSignature, normalizePayload } from './utils/compute-hmac-sig';
+import { computeHMACSignature } from './utils/compute-hmac-sig';
+import { normalizePayload } from './utils/normalize-payload';
 
 class PayTabs {
   private client: PayTabsClient;
