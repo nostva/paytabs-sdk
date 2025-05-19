@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.2.0
+
+### Minor Changes
+
+- d5cdf17: refactor
+
 ## 1.1.10
 
 ### Patch Changes
