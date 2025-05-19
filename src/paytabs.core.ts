@@ -1,7 +1,8 @@
+import assert from 'node:assert';
 import { PayTabsClient } from './paytabs.client';
 import { Payments } from './resources/payments';
 import type { PayTabsConfig } from './types';
-import { computeHMACSignature } from './utils/compute-hmac-sig';
+import { computeHMACSignature, normalizePayload } from './utils/compute-hmac-sig';
 
 class PayTabs {
   private client: PayTabsClient;
@@ -28,8 +29,10 @@ class PayTabs {
    * This function verifies the HMAC signature for the redirect request body.
    * It compares the computed SHA-256 hash of the payload with the provided signature.
    */
-  verifyRedirectResponse(payload: any, signature: string) {
-    return computeHMACSignature(payload, this.serverKey) === signature;
+  verifyRedirectResponse(payload: { [key: string]: any }) {
+    const { signature, ...rest } = payload;
+    assert(signature, 'signature property is undefined');
+    return computeHMACSignature(normalizePayload(rest), this.serverKey) === signature;
   }
 }
 

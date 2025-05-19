@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import PayTabs from '../paytabs.core';
 
 describe('PayTabs', () => {
@@ -9,9 +9,12 @@ describe('PayTabs', () => {
       region: 'EGY',
     });
 
-    const payload = { cart_id: 'order123', cart_description: 'Order #123' };
-    const signature = '5cc1fef661c4e00002851c7b5873d5f419a1e71724d762e430375b385b0260d1';
+    const payload = {
+      cart_id: 'order123',
+      cart_description: 'Order #123',
+      signature: '2f94e04e23fe0b72d147da37cf3e9dde331f1d2ce325c5f9d939cdd0ac1d45e1',
+    };
 
-    expect(paytabs.verifyRedirectResponse(payload, signature)).toBe(true);
+    expect(paytabs.verifyRedirectResponse(payload)).toBe(true);
   });
 });
