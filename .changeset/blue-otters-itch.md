@@ -1,0 +1,5 @@
+---
+'paytabs-sdk': minor
+---
+
+refactor
