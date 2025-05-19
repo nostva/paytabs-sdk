@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.9
+
+### Patch Changes
+
+- ca771e0: fix: enhance HMAC signature verification and add payload normalization
+
 ## 1.1.8
 
 ### Patch Changes
