@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.1.10
+
+### Patch Changes
+
+- 36825ce: update docs
+
 ## 1.1.9
 
 ### Patch Changes
