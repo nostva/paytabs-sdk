@@ -1,5 +1,11 @@
 # paytabs-sdk
 
+## 1.2.1
+
+### Patch Changes
+
+- 56941bc: feat(types): add framed options to PayTabsPaymentRequest interface
+
 ## 1.2.0
 
 ### Minor Changes
