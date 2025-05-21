@@ -171,17 +171,40 @@ export interface PayTabsPaymentRequest {
    */
   hide_shipping?: boolean;
   /**
-   * `customer_details` Indicates the customer details for this payment. If provided, the payment page will be prefilled with the provided data.
+   * `customer_details` Indicates the customer details for this payment. If provided, the payment page will
+   * be prefilled with the provided data.
    */
   customer_details?: CustomerDetails;
   /**
-   * `shipping_details` Indicates the customer shipping details for this payment. If provided, the payment page will be prefilled with the provided data.
+   * `shipping_details` Indicates the customer shipping details for this payment. If provided, the payment page
+   * will be prefilled with the provided data.
    */
   shipping_details?: ShippingDetails;
   /**
    * `payment_methods`
    */
   payment_methods?: ('all' | PaymentMthod | `-${PaymentMthod}`)[];
+  /**
+   * `framed` indicates whether to preview the payment page within the current check page instead of redirection or not.
+   * If `true`, preview the redirect URL sent in the response in `<iframe>` HTML tag, which will preview
+   * the whole payment page within this frame.
+   */
+  framed?: boolean;
+  /**
+   * `framed_return_top` Indicates whether to reload the whole page on redirections or just reload the current frame.
+   */
+  framed_return_top?: boolean;
+  /**
+   * `framed_return_parent` Indicates whether to reload the main base (could be `<div>` or another `<iframe>` tag)
+   * that contained the payment page framed element.
+   */
+  framed_return_parent?: boolean;
+  /**
+   * `framed_message_target` If you didn't have a return URL, PayTabs default return page
+   * (return: 'None'), to receive the message after the payment is done using the javascript,
+   * which gives your system the ability to close the iFrame after payment.
+   */
+  framed_message_target?: string;
 }
 
 /**
